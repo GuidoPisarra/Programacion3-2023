@@ -4,24 +4,27 @@ public class main {
 
 	public static void main(String[] args) {
 		// Ejercicio 1
-		MySimpleLinkedList<Integer> Lista = new MySimpleLinkedList<Integer>();
+		MySimpleLinkedList<Integer> lista = new MySimpleLinkedList<Integer>();
+		
 		//Insertar		
-		Lista.insertFront(1);
-		Lista.insertFront(8);
+		lista.insertFront(1);
+		lista.insertFront(8);
+		
 		//toString()
-		System.out.println("Listar");
-		Lista.toString();
-		System.out.println(" ");
+		System.out.println("listar");
+		System.out.println(lista.toString());
+
 		//Extraer
 		System.out.println("Primer valor, luego se extrae");
-		System.out.println(Lista.extractFront());
-
+		System.out.println(lista.extractFront());
+		
 		//Size
 		System.out.println("Size");
-		System.out.println(Lista.size());
+		System.out.println(lista.size());
+		
 		//IsEmpty
 		System.out.println("isEmpty");
-		System.out.println(Lista.isEmpty());
+		System.out.println(lista.isEmpty());
 		
 		
 		// Ejercicio 2
@@ -31,34 +34,56 @@ public class main {
 		
 		// Ejercicio 3
 		System.out.println("push");
-		Lista.push(88);
-		Lista.toString();
+		lista.push(88);
+		System.out.println(lista.toString());
 		System.out.println("pop");
-		System.out.println(Lista.pop());
-		System.out.println("Lista despues de pop");
-		Lista.toString();
+		System.out.println(lista.pop());
+		System.out.println("lista despues de pop");
+		System.out.println(lista.toString());
 		System.out.println("Top");
-		System.out.println(Lista.top());
-		System.out.println("Lista despues de top");
-		Lista.toString();
+		System.out.println(lista.top());
+		System.out.println("lista despues de top");
+		System.out.println(lista.toString());
 		
 		//Reverse
-		Lista.insertFront(10);
-		Lista.insertFront(7);
-		Lista.insertFront(22);
-		System.out.println("Lista original");
-		Lista.toString();
-		System.out.println("Lista despues de reverse");
-		Lista.reverse();
-		Lista.toString();		
+		lista.insertFront(10);
+		lista.insertFront(7);
+		lista.insertFront(22);
+		System.out.println("lista original");
+		System.out.println(lista.toString());
+		System.out.println("lista despues de reverse");
+		lista.reverse();
+		System.out.println(lista.toString());		
 		
 		
 		//Ejercicio 4
 		System.out.println("Indice de elemento");
-		System.out.println(Lista.indexOf(22));
+		System.out.println(lista.indexOf(10));
 		
 		//Ejercicio 5 PREGUNTAR , no creo que exista ventaja computacional
-		Lista.iterator().toString();
+		lista.iterator().toString();
+		
+		//Ejercicio 6.
+		// Escriba un procedimiento que dadas dos listas construya otra con los elementos comunes,
+		// suponiendo que: 
+		// a) Las listas están desordenadas y la lista resultante debe quedar ordenada. 
+		// b) Las listas están ordenadas y la lista resultante debe mantenerse ordenada.
+		MySimpleLinkedList<Integer> lista2 = new MySimpleLinkedList<Integer>(); 
+		lista2.insertFront(8);
+		lista2.insertFront(7);
+		lista2.insertFront(9);
+		lista2.insertFront(10);
+
+		System.out.println("Lista 2");
+		System.out.println(lista2.toString());
+		
+		MySimpleLinkedList<Integer> result = lista.commonElementsList(lista, lista2);
+		System.out.println("Lista elementos comunes");
+		System.out.println(result.toString());
+		
+		// Ejercicio 7.
+		//  Escriba una función que dadas dos listas construya otra con los elementos que están en la
+		//  primera pero no en la segunda.
 		
 		
 	}

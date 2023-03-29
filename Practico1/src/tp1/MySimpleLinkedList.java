@@ -32,23 +32,21 @@ public class MySimpleLinkedList<T> {
 	}
 
 	public boolean isEmpty() {
-		if(this.size>0) {
-			return false;
-		}
-		return true;
+		return this.size == 0;
 	}
 	
 	public T get(int index) {
-		int indexAux = 0;
+		Integer indexAux = -1;
 		Node<T> tmp = this.first;
-		while((tmp.getNext() != null) && (indexAux <= index)) {
+		while((tmp.getNext() != null) && (indexAux >= index)) {
 			tmp=tmp.getNext();
 			indexAux++;
+			if(indexAux == index) {
+				return tmp.getInfo();
+			}
 		}
-		if(indexAux == index) {
-			return tmp.getInfo();
-		}
-		return null;
+		
+		return tmp.getInfo();
 	}
 	
 	public int size() {
@@ -79,7 +77,7 @@ public class MySimpleLinkedList<T> {
 		}
 		return null;
 	}
-	// TODO Preguntar!!!! 
+	
 	
 	public void reverse() {
 		MySimpleLinkedList<T> ListaAuxiliar = new MySimpleLinkedList();
@@ -110,16 +108,39 @@ public class MySimpleLinkedList<T> {
 		return new MyIterator<T>(this.first);
 	}
 	
+	public MySimpleLinkedList<T> commonElementsList(MySimpleLinkedList<T> list1,MySimpleLinkedList<T> list2 ){
+		MySimpleLinkedList<T> resultList = new MySimpleLinkedList<T>();
+		Node<T> tmpLista1 = list1.first;		
+		
+		while(tmpLista1 != null) {
+			Node<T> tmpLista2 = list2.first;
+			while(tmpLista2 != null) {
+				if(tmpLista1.getInfo()==tmpLista2.getInfo()) {
+					resultList.push(tmpLista1.getInfo());
+				}
+				tmpLista2 = tmpLista2.getNext();
+			}
+			tmpLista1 = tmpLista1.getNext();				
+		}	
+		return resultList;
+	}
+	
+	public MySimpleLinkedList<T> listElementsDiff(MySimpleLinkedList<T> list1, MySimpleLinkedList<T> list2){
+		MySimpleLinkedList<T> resultList = new MySimpleLinkedList();
+		
+		return resultList;
+	}
+	
 	
 	@Override
-	public String toString() { // no me convence que sea asi
-		Node<T> tmp = this.first;		
+	public String toString() { // ver como sacar la ultima ","
+		Node<T> tmp = this.first;	
+		String cadena = "";
 		while(tmp != null) {
-			System.out.print(tmp.getInfo() + " ");
+			cadena = cadena + tmp.getInfo() + ", ";
 			tmp = tmp.getNext();
 		}
-		System.out.println();
-		return null;
+		return cadena;
 	}
 	
 }
