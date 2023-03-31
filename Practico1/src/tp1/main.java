@@ -84,8 +84,39 @@ public class main {
 		// Ejercicio 7.
 		//  Escriba una función que dadas dos listas construya otra con los elementos que están en la
 		//  primera pero no en la segunda.
+		System.out.println("Lista elementos NO comunes");
+		MySimpleLinkedList<Integer> resultNoCommon = lista.listElementsDiff(lista, lista2);
+
+		System.out.println(resultNoCommon.toString());
 		
 		
+		//Ejercicio 8.
+		//Considerando la implementación de Lista del ejercicio 1, realice una Lista doblemente
+		//vinculada.
+		
+		MyDoubleLinkedList<Integer> listaDoble = new MyDoubleLinkedList<Integer>();
+		listaDoble.insertFront(9);
+		listaDoble.insertFront(8);
+		listaDoble.insertFront(7);
+		System.out.println("Imprimir lista doble insert front");
+		System.out.println(listaDoble.toString());
+		System.out.println("Imprimir lista doble extract front");
+		listaDoble.extractFront();
+		System.out.println(listaDoble.toString());
+		System.out.println("Is empty");
+		System.out.println(listaDoble.isEmpty());
+		System.out.println("size");
+		System.out.println(listaDoble.size());
+		System.out.println("get index");
+		System.out.println(listaDoble.getIndex(2));
+		System.out.println("insert last");
+		listaDoble.insertLast(88);
+		listaDoble.insertLast(99);
+		System.out.println(listaDoble.toString());
+		System.out.println("extract last");
+		listaDoble.extractLast();
+		System.out.println(listaDoble.toString());
+
 	}
 
 }

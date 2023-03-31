@@ -71,9 +71,9 @@ public class MySimpleLinkedList<T> {
 		return null;
 	}
 	
-	public T top() {
+	public Node<T> top() {
 		if(first!=null) {
-			return first.getInfo();
+			return first;
 		}
 		return null;
 	}
@@ -86,9 +86,10 @@ public class MySimpleLinkedList<T> {
 			ListaAuxiliar.push(tmp.getInfo());	//Podria utilizar también insertFront()
 			tmp=tmp.getNext();
 		}
-		this.first = ListaAuxiliar.first;
+		this.first = (Node<T>) ListaAuxiliar.top();
 	}
 	
+	// TODO cursor,last, insertlast, getlast resetcursor, movecursosr, get cursor 
 	
 	
 	public int indexOf(T element) {
@@ -110,10 +111,10 @@ public class MySimpleLinkedList<T> {
 	
 	public MySimpleLinkedList<T> commonElementsList(MySimpleLinkedList<T> list1,MySimpleLinkedList<T> list2 ){
 		MySimpleLinkedList<T> resultList = new MySimpleLinkedList<T>();
-		Node<T> tmpLista1 = list1.first;		
+		Node<T> tmpLista1 = list1.top();		
 		
 		while(tmpLista1 != null) {
-			Node<T> tmpLista2 = list2.first;
+			Node<T> tmpLista2 = list2.top();
 			while(tmpLista2 != null) {
 				if(tmpLista1.getInfo()==tmpLista2.getInfo()) {
 					resultList.push(tmpLista1.getInfo());
@@ -126,9 +127,31 @@ public class MySimpleLinkedList<T> {
 	}
 	
 	public MySimpleLinkedList<T> listElementsDiff(MySimpleLinkedList<T> list1, MySimpleLinkedList<T> list2){
-		MySimpleLinkedList<T> resultList = new MySimpleLinkedList();
-		
+		MySimpleLinkedList<T> resultList = new MySimpleLinkedList<T>();
+		Node<T> tmpList1 = list1.top(); 
+		while(tmpList1!=null){
+			Node<T> tmpList2 = list2.top();
+			boolean inList = false;
+			while(tmpList2 != null) {
+				if(tmpList1.getInfo() == tmpList2.getInfo()) {
+					inList =true;
+				}
+				tmpList2=tmpList2.getNext();
+			}
+			if(!inList) {
+				resultList.push(tmpList1.getInfo());
+			}
+			tmpList1 =tmpList1.getNext();
+			
+		}
 		return resultList;
+	}
+	
+	public boolean palindroma(String word) {
+		boolean isPalindroma = false;
+		
+		
+		return isPalindroma; 
 	}
 	
 	
