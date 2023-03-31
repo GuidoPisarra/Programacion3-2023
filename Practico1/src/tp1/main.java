@@ -116,6 +116,13 @@ public class main {
 		System.out.println("extract last");
 		listaDoble.extractLast();
 		System.out.println(listaDoble.toString());
+		System.out.println("palindroma");
+		System.out.println(lista.isPalindroma("neuquenx"));
+		System.out.println(lista.isPalindroma("arenera"));
+		System.out.println(lista.isPalindroma("reconocerr"));
+		System.out.println(lista.isPalindroma("sometemos"));
+
+
 
 	}
 

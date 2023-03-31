@@ -147,9 +147,17 @@ public class MySimpleLinkedList<T> {
 		return resultList;
 	}
 	
-	public boolean palindroma(String word) {
-		boolean isPalindroma = false;
-		
+	public boolean isPalindroma(String word) {
+		boolean isPalindroma = true;
+		int longitud = word.length()-1;
+		int indice = 0;
+		while((longitud/2) >indice) {
+			if(word.charAt(longitud)!=word.charAt(indice)) {
+				isPalindroma=false;
+			}
+			indice++;			
+			longitud=longitud-indice;
+		}
 		
 		return isPalindroma; 
 	}
