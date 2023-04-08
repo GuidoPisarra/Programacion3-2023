@@ -94,13 +94,18 @@ public class main {
 //	       algoritmos de los ejercicios 3 y 4, 10000 veces consecutivas cada uno, y compruebe el tiempo
 //	       de ejecución. Haga lo mismo con el método Arrays.sort(...) de Java, y compare los tiempos
 //	       obtenidos. Investigue cómo está implementado el Array.sort()
-	       
+
 	       ArrayAlgoritm arregloAlgoritmo = new ArrayAlgoritm();
+	       long startTime = System.currentTimeMillis();
+
 	        int[] arreglo = arregloAlgoritmo.createArrayNumRandom();
 	        for(int i = 0 ;i<arreglo.length; i++) {
 	        	System.out.print(arreglo[i] + " ");
 	        }
-	        
+	        System.out.println();
+	        long endTime = System.currentTimeMillis();
+	        long duration = endTime - startTime;
+	        System.out.println("Tiempo de ejecución: " + duration + "ms");
 	       
 	}
 
