@@ -1,5 +1,9 @@
 package Practico2;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class main {
 
 	public static void main(String[] args) {
@@ -73,8 +77,30 @@ public class main {
 //	       1. ¿Cuál es su complejidad en el peor caso?
 //	       2. ¿Cuál es su complejidad promedio?
 	       
+	       MergeSort mergeSort = new MergeSort();
+//	       mergeSort.sort(array);
+//	       for(int i = 0; i < array.length; i++) {
+//	    	   System.out.print(array[i] + " ");
+//	       }
 	       
+	       QuickSort quickSort = new QuickSort();
+//	       quickSort.sort(array);
+//	       for(int i = 0; i < array.length; i++) {
+//	    	   System.out.print(array[i] + " ");
+//	       }
 	       
+//	       Ejercicio 8.
+//	       Implemente una función que cree un arreglo de tamaño N con números aleatorios. Corra los
+//	       algoritmos de los ejercicios 3 y 4, 10000 veces consecutivas cada uno, y compruebe el tiempo
+//	       de ejecución. Haga lo mismo con el método Arrays.sort(...) de Java, y compare los tiempos
+//	       obtenidos. Investigue cómo está implementado el Array.sort()
+	       
+	       ArrayAlgoritm arregloAlgoritmo = new ArrayAlgoritm();
+	        int[] arreglo = arregloAlgoritmo.createArrayNumRandom();
+	        for(int i = 0 ;i<arreglo.length; i++) {
+	        	System.out.print(arreglo[i] + " ");
+	        }
+	        
 	       
 	}
 
