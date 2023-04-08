@@ -1,16 +1,34 @@
-package tp1;
+package NooooPractico1;
 
 import java.util.Iterator;
 
 
-public class MySimpleLinkedList<T> {
+public class MySimpleLinkedList<T> implements Iterable<T> {
 	
 	private Node<T> first;
 	private int size; 
+
 	
 	public MySimpleLinkedList() {
 		this.first = null;
 		this.size = 0;
+	}
+	
+	public Node<T> getFirst(){
+		Node<T> firstCopy = this.first;
+		return firstCopy;
+	}
+	
+	public void setFirst(Node<T> node){
+		this.first = node;
+	}
+	
+	public int getSize() {
+		return this.size;
+	}
+	
+	public void setSize(int num) {
+		this.size = num;
 	}
 	
 	public void insertFront(T info) {
@@ -52,51 +70,12 @@ public class MySimpleLinkedList<T> {
 	public int size() {
 		return this.size;
 	}
-	
-	public void push(T element) {
-		Node<T> tmp = new Node<T>(element, null);
-		tmp.setNext(this.first);
-		this.size++;
-		this.first=tmp;
-	}
-	
-	public T pop(){
-		Node<T> tmp =first;
-		T aux;
-		if(first!=null) {
-			aux = first.getInfo();
-			first = tmp.getNext();
-			return aux;
-		}
-		return null;
-	}
-	
-	public Node<T> top() {
-		if(first!=null) {
-			return first;
-		}
-		return null;
-	}
-	
-	
-	public void reverse() {
-		MySimpleLinkedList<T> ListaAuxiliar = new MySimpleLinkedList();
-		Node<T> tmp = this.first;
-		while(tmp!=null) {
-			ListaAuxiliar.push(tmp.getInfo());	//Podria utilizar también insertFront()
-			tmp=tmp.getNext();
-		}
-		this.first = (Node<T>) ListaAuxiliar.top();
-	}
-	
-	// TODO cursor,last, insertlast, getlast resetcursor, movecursosr, get cursor 
-	
-	
+		
 	public int indexOf(T element) {
 		Node<T> tmp =  this.first;
 		int posicion = 0;
 		while(tmp != null){
-			if(tmp.getInfo()==element) {
+			if(tmp.getInfo()== element) {
 				return posicion;
 			}
 			tmp = tmp.getNext();
@@ -105,19 +84,40 @@ public class MySimpleLinkedList<T> {
 		return -1;
 	}
 	
-	public Iterator<T> iterator() {
-		return new MyIterator<T>(this.first);
+	public T top() {
+		if(first!=null) {
+			return first.getInfo();
+		}
+		return null;
 	}
+	
+	public void recorer() {
+		
+	}
+	
+	@Override
+	public Iterator<T> iterator() {
+		return new MyIterador<T>(this.first);
+	}
+	
+	
+	
+	/*public Iterator<Integer> recorrer() {
+	Iterator<Integer> it = MySimpleLinkedList.recorrer();
+	while(it.hasNext()){
+		System.out.println(it.next());
+	}
+}*/
 	
 	public MySimpleLinkedList<T> commonElementsList(MySimpleLinkedList<T> list1,MySimpleLinkedList<T> list2 ){
 		MySimpleLinkedList<T> resultList = new MySimpleLinkedList<T>();
-		Node<T> tmpLista1 = list1.top();		
+		Node<T> tmpLista1 = list1.getFirst();		
 		
 		while(tmpLista1 != null) {
-			Node<T> tmpLista2 = list2.top();
+			Node<T> tmpLista2 = list2.getFirst();
 			while(tmpLista2 != null) {
 				if(tmpLista1.getInfo()==tmpLista2.getInfo()) {
-					resultList.push(tmpLista1.getInfo());
+					resultList.insertFront(tmpLista1.getInfo());
 				}
 				tmpLista2 = tmpLista2.getNext();
 			}
@@ -128,9 +128,9 @@ public class MySimpleLinkedList<T> {
 	
 	public MySimpleLinkedList<T> listElementsDiff(MySimpleLinkedList<T> list1, MySimpleLinkedList<T> list2){
 		MySimpleLinkedList<T> resultList = new MySimpleLinkedList<T>();
-		Node<T> tmpList1 = list1.top(); 
+		Node<T> tmpList1 = list1.getFirst(); 
 		while(tmpList1!=null){
-			Node<T> tmpList2 = list2.top();
+			Node<T> tmpList2 = list2.getFirst();
 			boolean inList = false;
 			while(tmpList2 != null) {
 				if(tmpList1.getInfo() == tmpList2.getInfo()) {
@@ -139,7 +139,7 @@ public class MySimpleLinkedList<T> {
 				tmpList2=tmpList2.getNext();
 			}
 			if(!inList) {
-				resultList.push(tmpList1.getInfo());
+				resultList.insertFront(tmpList1.getInfo());
 			}
 			tmpList1 =tmpList1.getNext();
 			
@@ -173,5 +173,7 @@ public class MySimpleLinkedList<T> {
 		}
 		return cadena;
 	}
+
+
 	
 }

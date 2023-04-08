@@ -1,12 +1,12 @@
-package tp1;
+package NooooPractico1;
 
 import java.util.Iterator;
 
 
-public class MyIterator<T> implements Iterator<T>{
+public class MyIteratorOLD<T> implements Iterator<T>{
 	private Node<T> cursor;
 
-	public MyIterator(Node<T> first) {
+	public MyIteratorOLD(Node<T> first) {
 		this.cursor = first;
 	}
 	@Override

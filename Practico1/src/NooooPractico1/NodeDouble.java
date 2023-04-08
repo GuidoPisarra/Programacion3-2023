@@ -1,4 +1,4 @@
-package tp1;
+package NooooPractico1;
 
 public class NodeDouble<T> {
 	private T info;

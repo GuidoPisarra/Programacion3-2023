@@ -1,4 +1,6 @@
-package tp1;
+package NooooPractico1;
+
+import java.util.Objects;
 
 public class Node<T> {
 
@@ -30,5 +32,8 @@ public class Node<T> {
 	public void setInfo(T info) {
 		this.info = info;
 	}
+
+
+
 
 }

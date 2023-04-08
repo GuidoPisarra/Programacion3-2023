@@ -1,11 +1,11 @@
-package tp1;
+package NooooPractico1;
 
-public class MyDoubleLinkedList<T> {
+public class MyDoubleLinkedListOLD<T> {
 	NodeDouble<T> first = new NodeDouble<T>();
 	NodeDouble<T> last = new NodeDouble<T>();
 	int size;
 	
-	public MyDoubleLinkedList(){
+	public MyDoubleLinkedListOLD(){
 		this.first =null;
 		this.last = null;
 		this.size =0;
