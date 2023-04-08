@@ -13,17 +13,17 @@ public class QuickSort {
 	
 	public void sort(int[] arr, int low, int high) {
         if (low < high) {
-            // Partition the array
+            // divido el array
             int pi = partition(arr, low, high);
 
-            // Recursively sort elements before and after partition
+            // recursion de los elementos del arreglo
             sort(arr, low, pi - 1);
             sort(arr, pi + 1, high);
         }
     }
 
 	// Este método toma el último elemento como pivote, lo coloca en su posición correcta
-    // posición en la matriz ordenada y coloca todos los más pequeños (más pequeños que el pivote)
+    // en el arreglo ordenado y coloca todos los más pequeños (más pequeños que el pivote)
     // a la izquierda del pivote y todos los elementos mayores a la derecha del pivote
     private int partition(int[] arr, int low, int high) {
         int pivot = arr[high];
