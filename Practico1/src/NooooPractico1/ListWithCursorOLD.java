@@ -45,6 +45,7 @@ public class ListWithCursorOLD<T> implements Iterator<T>{
 		this.size++;
 	}
 	
+	
 	public T getLast() {
 		if(this.last != null) {
 			return this.last.getInfo();

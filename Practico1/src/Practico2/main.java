@@ -16,7 +16,7 @@ public class main {
 		 
 		
 //	       int[] array = {1,2,3,4,5,6,7};
-	       RecursiveAlgoritms algoritmo = new RecursiveAlgoritms();
+//	       RecursiveAlgoritms algoritmo = new RecursiveAlgoritms();
 //	       System.out.println(algoritmo.arrayInOrder(array, 0));
 	       
 //	       Ejercicio 2.

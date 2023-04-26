@@ -103,6 +103,13 @@ public class ListWithCursor<T> implements Iterable<T> {
 		}
 	}
 	
+	public int getSize() {
+		return this.size;
+	}
+	
+	public boolean isEmpty() {
+		return size == 0;
+	}
 	public void resetCursor() {
 		this.cursor = this.first;
 	}
