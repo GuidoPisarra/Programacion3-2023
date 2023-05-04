@@ -26,9 +26,10 @@ public class main {
 		System.out.println();
 		System.out.print("InOrder: ");
 		arbol.printInOrder();
-		//arbol.delete(91);
-		//System.out.print("InOrder despues de eliminar:  ");
-		//arbol.printInOrder();
+		arbol.delete(91);
+		System.out.println();
+		System.out.print("InOrder despues de eliminar:  ");
+		arbol.printInOrder();
 		System.out.println();
 		System.out.print("Altura: " +arbol.getHeigth());
 		System.out.println();
@@ -43,24 +44,26 @@ public class main {
 		
 		
 		System.out.println();
-		//EJERCICIO 2
-		System.out.print("Suma Nodos Internos: "+ arbol.getSumaNodosInternos());
-		
+//		//EJERCICIO 2
+     	System.out.print("Suma Nodos Internos: "+ arbol.getSumaNodosInternos());
+//		
 		System.out.println();
-		//EJERCICIO 3
+//		//EJERCICIO 3
 		System.out.print("Valores Mayores: "+ arbol.getValoresMayores(80));
-		
+//		
 		System.out.println();
-		//EJERCICIO 4
+//		//EJERCICIO 4
 		System.out.print("Completar Arbol: ");
 		arbol.completarArbol();
-		
+//		
 		System.out.println();
-		//EJERCICIO 5
+//		//EJERCICIO 5
 		Tree<Character> arbolLetras = new Tree<Character>();
 		
 
 		System.out.print("Palabras por cantidad vocales: "+ arbolLetras.getPalabrasPorCantVocales(1));
+		
+	
 	}
 
 }

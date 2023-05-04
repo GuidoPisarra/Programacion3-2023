@@ -99,7 +99,6 @@ public class Tree<T> {
 	
 	private void eliminar(TreeNode<Integer> node, TreeNode<Integer> padre ) {
 		
-		TreeNode<Integer> tmp = new TreeNode<Integer>();
 		if(node.getDer()==null && node.getIzq()==null) {
 			if(padre.getInfo()>node.getInfo()) {
 				padre.setIzq(null);
@@ -107,6 +106,7 @@ public class Tree<T> {
 				padre.setDer(null);
 			}
 		}else {
+			TreeNode<Integer> tmp = new TreeNode<Integer>();
 			if(node.getDer()!=null) {
 				tmp = buscarMasIzqDeMisDerechos(node.getDer());
 			}else {
@@ -114,26 +114,27 @@ public class Tree<T> {
 					tmp = buscarMasDerDeMisIzquierdos(node.getIzq());
 				}
 			}			
+			System.out.println("");
 			System.out.println("tmp "+ tmp.getInfo());
 			System.out.println("padre "+ padre.getInfo());
 			System.out.println("nodo "+ node.getInfo());
-			System.out.println("nodo izq"+ node.getIzq().getInfo());
-			System.out.println("nodo "+ node.getDer().getInfo());
-
-			if(padre.getInfo()>tmp.getInfo()) {
-				padre.setIzq(tmp);
-			}else {
-				padre.setDer(tmp);
-			}
 			if(node.getIzq()!=null) {
-				tmp.setIzq(node.getIzq());
+				System.out.println("nodo izq"+ node.getIzq().getInfo());
+				tmp.setIzq(node.getIzq().getIzq());
 			}
 			if(node.getDer()!=null) {
-				tmp.setDer(node.getDer());
-			
+				System.out.println("nodo  derecha"+ node.getDer().getInfo());
+				tmp.setDer(node.getDer().getDer());
 			}
-						
-			this.delete(tmp.getInfo());
+			
+			if(padre.getInfo()<node.getInfo()) {
+				padre.setDer(tmp);
+			}else {
+				padre.setIzq(tmp);
+			}
+			if(node.getDer()!=null && node.getIzq()!=null) {
+				this.delete(tmp.getInfo());
+			}
 		}
 	}
 	
