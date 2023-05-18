@@ -225,7 +225,5 @@ public class ServicioDepthFirstSearch {
 		}		
 		this.colores.replace(origen, "BLANCO");
 		return caminos;
-	}
-		
-	
+	}	
 }
